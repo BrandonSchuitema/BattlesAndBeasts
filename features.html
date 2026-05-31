@@ -61,6 +61,23 @@
 					That'll change though once the tool is more complete and not so terrible.
 				</p>
 
+				<h2>Random Number Generator</h2>
+				<p>
+					If you're interested in this type of game, you probably have a die or two laying around.
+					But it never hurts to have an extra tool in your arsenal, so here is a random number generator for your convienence.
+					<br>
+					<br>
+					<p id="one">Random Number Here!</p>
+					<form>
+						<input id="max" type="text" value="Put max number here!" onFocus="this.select();" onMouseOut="javascript:return false;">
+					</form>
+					<button onclick="random()">Random</button>
+					<br>
+					<p>
+						*If you input no value, it'll generate a number between 1 and 20.*
+					</p>
+				</p>
+
 				<h2>Enemies</h2>
 				<p>
 					This part of the page might get moved to the rule book section, but for now it's here.
@@ -69,7 +86,6 @@
 					Here is all the information and what not about the enemies in the game.
 					That is... once I actually get the information on them.
 				</p>
-
 				
 				<h2>Classes</h2>
 				<p>
@@ -111,4 +127,23 @@
 		</div>
 	</div>
 </body>
+
+<script>
+	function random(){
+		const maxValue = parseInt(document.getElementById('max').value);
+
+		if (isNaN(maxValue)){
+			document.getElementById("one").innerHTML = Math.floor(Math.random() * 20 + 1);
+			return;
+		}
+		else if (maxValue === 0)
+		{
+			alert("You can't roll a 0 stupid!");
+			return;
+		}
+
+		document.getElementById("one").innerHTML = Math.floor(Math.random() * maxValue + 1);
+	}
+</script>
+
 </html>
